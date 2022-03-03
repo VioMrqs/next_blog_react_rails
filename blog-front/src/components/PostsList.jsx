@@ -2,7 +2,7 @@ import Button from "./Button";
 import { useUserContext } from "../UserContext";
 import Cookies from "js-cookie";
 import PostUpdateForm from "./PostUpdateForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PostList = ({ data }) => {
   const { user } = useUserContext();
@@ -32,26 +32,23 @@ const PostList = ({ data }) => {
   };
 
   const handleFilterSubmit = () => {
+    console.log("coucou");
     setFilter(!filter);
-    console.log(filter)
-    if (filter === true) {
-      console.log("coucou")
-      data = data.filter((post) => post.user_id === user.id);
-    }
   };
 
-  console.log(data);
-  // console.log(filteredData);
+  const setData = (data) => {
+    return filter ? data.filter((post) => post.user_id === user.id) : data;
+  };
 
   return (
     <div className="posts_list">
       {user && (
         <Button
-          text={"Voir uniquement mes posts"}
+          text={filter ? "Tous les posts" : "Voir uniquement mes posts"}
           onClick={() => handleFilterSubmit()}
         />
       )}
-      {data.map((post) => {
+      {setData(data).map((post) => {
         return (
           <div key={post.id} className="post__item">
             <h2>{post.title}</h2>
