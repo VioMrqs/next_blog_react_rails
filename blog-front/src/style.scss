@@ -70,3 +70,25 @@ body {
   font-size: 16px;
   margin-right: 2rem;
 }
+
+// post
+
+.posts_list{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post__item {
+  border: solid $color-bg-light;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+.post__picture {
+  border-radius: 8px;
+  width: 150px;
+  height: auto;
+}

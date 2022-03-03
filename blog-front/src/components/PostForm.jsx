@@ -41,8 +41,7 @@ const PostForm = () => {
   };
 
   return (
-    <div>
-      <h2>A toi la parole</h2>
+    <>
       <form>
         <div>
           <div className="form__label">
@@ -62,6 +61,13 @@ const PostForm = () => {
             value={content}
             type="text"
           />
+          <label>Image</label>
+          <input
+            onChange={handleTitle}
+            className="post__input"
+            value={title}
+            type="string"
+          />
         </div>
         <div>
           <Button
@@ -71,7 +77,7 @@ const PostForm = () => {
           />
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

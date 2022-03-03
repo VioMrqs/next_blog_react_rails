@@ -10,14 +10,12 @@ import Profile from "./pages/Profile";
 // import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import "./style.scss";
-import { AppContext } from "./SessionContext";
 import { UserContext } from "./UserContext";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 
 const App = () => {
-  const [isAuthenticated, userHasAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const userToken = Cookies.get("token");
 
@@ -52,7 +50,6 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
         <UserContext.Provider value={{ user, setUser }}>
           <Router>
             <NavBar />
@@ -71,7 +68,6 @@ const App = () => {
             </main>
           </Router>
         </UserContext.Provider>
-      </AppContext.Provider>
     </div>
   );
 };

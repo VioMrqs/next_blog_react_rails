@@ -39,6 +39,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
+    render json: {message: 'Ton post a bien été supprimé'}
   end
 
   private

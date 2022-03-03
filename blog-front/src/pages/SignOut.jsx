@@ -2,7 +2,6 @@ import React from "react";
 import Cookies from "js-cookie";
 import Button from "./../components/Button";
 import { useNavigate } from "react-router-dom";
-// import { useAppContext } from "../SessionContext";
 import { useUserContext } from "../UserContext";
 
 const Logout = () => {
