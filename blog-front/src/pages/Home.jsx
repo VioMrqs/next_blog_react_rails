@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import PostsList from "../components/PostsList";
-import Cookies from "js-cookie"
+import PostForm from "../components/PostForm";
+// import { useAppContext } from "../SessionContext";
+import { useUserContext } from "../UserContext";
 
 const Home = () => {
+  // const { isAuthenticated } = useAppContext();
+const { user } = useUserContext()
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
 
   const fetchPost = async () => {
     const data = await fetch("http://localhost:3000/posts", {
@@ -23,8 +27,9 @@ const Home = () => {
 
   return (
     <div>
+      {user && <PostForm />}
       <h1>Tous les Posts</h1>
-      <PostsList data={data} />
+      <PostsList data={data.sort((a, b) => b.created_at - a.created_at)} />
     </div>
   );
 }

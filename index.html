@@ -57,15 +57,6 @@
         console.log(result);
       };
 
-      // const register1 = async (options) => {
-      //   const data = await fetch(
-      //     "http://localhost:3000/users/sign_up",
-      //     options
-      //   );
-      //   const result = await data.json();
-      //   console.log(result);
-      // };
-
       const main = async () => {
         const headers = new Headers();
 
@@ -81,17 +72,6 @@
             },
           }),
         };
-
-        // const options1 = {
-        //   headers,
-        //   method: "GET",
-        //   body: JSON.stringify({
-        //     user: {
-        //       email: `test@${Math.random()}.fr`,
-        //       password: "azerty",
-        //     },
-        //   }),
-        // };
 
         await register(options);
 

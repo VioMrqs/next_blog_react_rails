@@ -1,8 +1,14 @@
 import { useState } from "react";
-import Button from "./../components/Button";
+import Button from "../components/Button";
 import Cookies from "js-cookie";
+// import { useAppContext } from "../SessionContext";
+import { useUserContext } from "../UserContext";
+import jwt_decode from "jwt-decode";
 
-const Register = () => {
+const SignUp = () => {
+
+  const { setUser } = useUserContext();
+
   // States for registration
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,6 +74,8 @@ const Register = () => {
       setSubmitted(true);
       setError(false);
       fetchRegisterForm(data);
+      setUser(jwt_decode(Cookies.get("token")))
+      // userHasAuthenticated(true);
     }
   };
 
@@ -159,4 +167,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;

@@ -6,6 +6,7 @@ const PostList = ({data}) => {
           <div key={post.id}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
+            <p>{post.user_id}</p>
           </div>
         );
       })}

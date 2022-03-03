@@ -2,16 +2,18 @@ import React from "react";
 import Cookies from "js-cookie";
 import Button from "./../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from "../SessionContext";
+// import { useAppContext } from "../SessionContext";
+import { useUserContext } from "../UserContext";
 
 const Logout = () => {
   let history = useNavigate();
-  const { isAuthenticated, userHasAuthenticated } = useAppContext();
+  const {setUser} = useUserContext();
+  // const { userHasAuthenticated } = useAppContext();
 
   const handleSubmit = () => {
     Cookies.remove("token");          
-    userHasAuthenticated(false);
-    console.log(isAuthenticated);
+    // userHasAuthenticated(false);
+    setUser(null)
     history("/");
   };
 

@@ -1,23 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "./../SessionContext";
+import { useUserContext } from "../UserContext";
 
 const NavBar = () => {
-  const {isAuthenticated} = useAppContext();
-  console.log(isAuthenticated);
-  
+  const {user } = useUserContext()
+
+  console.log("navbar")
+  console.log(user)
+
   return (
     <div className="navbar">
       <div className="navbar__right">
         <Link to="/">PostMan</Link>
       </div>
-      {isAuthenticated && (
+      {user && (
         <div className="navbar__left">
-          <Link to="/profile"> Profil</Link>
+          <Link to="/profil"> Profil</Link>
           <Link to="/sign_out">Déconnexion</Link>
         </div>
       )}
-      {!isAuthenticated && (
+      {!user && (
         <div className="navbar__left">
           <Link to="/sign_up">Inscription</Link>
           <Link to="/sign_in">Connexion</Link>
