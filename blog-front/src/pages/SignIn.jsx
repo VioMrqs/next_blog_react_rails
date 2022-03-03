@@ -2,13 +2,11 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import Button from "./../components/Button";
 import { useNavigate } from "react-router-dom";
-// import { useAppContext } from "../SessionContext";
 import { useUserContext } from "../UserContext";
 
 const SignIn = () => {
-  // const { userHasAuthenticated } = useAppContext();
 
-  const { user, setUser } = useUserContext();
+  const { setUser } = useUserContext();
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -39,8 +37,8 @@ const SignIn = () => {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.ok) {
-        Cookies.set("token", res.headers.get("Authorization"));
-        // userHasAuthenticated(true);
+        const token = res.headers.get("Authorization");
+        Cookies.set("token", token, { expires: 7 });
         setUser(Cookies.get("token"));
         history(`/`);
         return res.json();

@@ -8,11 +8,9 @@ import { useUserContext } from "../UserContext";
 const Logout = () => {
   let history = useNavigate();
   const {setUser} = useUserContext();
-  // const { userHasAuthenticated } = useAppContext();
 
   const handleSubmit = () => {
     Cookies.remove("token");          
-    // userHasAuthenticated(false);
     setUser(null)
     history("/");
   };

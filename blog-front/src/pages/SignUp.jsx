@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Cookies from "js-cookie";
-// import { useAppContext } from "../SessionContext";
 import { useUserContext } from "../UserContext";
 import jwt_decode from "jwt-decode";
 
 const SignUp = () => {
+
+  let history = useNavigate();
 
   const { setUser } = useUserContext();
 
@@ -47,8 +49,10 @@ const SignUp = () => {
     })
       .then((res) => {
         if (res.ok) {
-          Cookies.set("token", res.headers.get("Authorization"));
-          return res.json();
+        const token = res.headers.get("Authorization");
+        Cookies.set("token", token, { expires: 7 });
+        history(`/`);      
+        return res.json();
         } else {
           throw new Error(res);
         }
