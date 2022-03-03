@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=PT+Sans+Caption:wght@700&display=swap');
 
 $color-bg-dark: #001427;
 $color-bg-light: #708d81;
@@ -10,6 +9,11 @@ $color-dark: #8d0801;
 
 body {
 font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+  color: $color-bg-dark;
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 // Button

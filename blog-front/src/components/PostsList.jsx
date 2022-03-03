@@ -2,7 +2,7 @@ import Button from "./Button";
 import { useUserContext } from "../UserContext";
 import Cookies from "js-cookie";
 import PostUpdateForm from "./PostUpdateForm";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const PostList = ({ data }) => {
   const { user } = useUserContext();
@@ -32,7 +32,6 @@ const PostList = ({ data }) => {
   };
 
   const handleFilterSubmit = () => {
-    console.log("coucou");
     setFilter(!filter);
   };
 

@@ -27,10 +27,10 @@ const { user } = useUserContext()
     <>
       {user && 
       <>
-      <h1>Bienvenue {user.alias}</h1>
+      <h1>Bienvenu {user.alias} !</h1>
       <PostForm />
       </>}
-      <h1>Tous les Posts</h1>
+      <h1>FEED</h1>
       <PostsList data={data.sort((a, b) => b.created_at - a.created_at)} />
     </>
   );
