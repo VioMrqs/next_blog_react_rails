@@ -8,6 +8,7 @@ const PostList = ({ data }) => {
   const { user } = useUserContext();
   const userToken = Cookies.get("token");
   const [showUpdate, setShowUpdate] = useState(false);
+  const [filter, setFilter] = useState(false);
 
   const deletePost = async (id) => {
     const response = await fetch(`http://localhost:3000/posts/${id}`, {
@@ -30,8 +31,26 @@ const PostList = ({ data }) => {
     setShowUpdate(!showUpdate);
   };
 
+  const handleFilterSubmit = () => {
+    setFilter(!filter);
+    console.log(filter)
+    if (filter === true) {
+      console.log("coucou")
+      data = data.filter((post) => post.user_id === user.id);
+    }
+  };
+
+  console.log(data);
+  // console.log(filteredData);
+
   return (
     <div className="posts_list">
+      {user && (
+        <Button
+          text={"Voir uniquement mes posts"}
+          onClick={() => handleFilterSubmit()}
+        />
+      )}
       {data.map((post) => {
         return (
           <div key={post.id} className="post__item">
