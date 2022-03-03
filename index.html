@@ -57,6 +57,15 @@
         console.log(result);
       };
 
+      // const register1 = async (options) => {
+      //   const data = await fetch(
+      //     "http://localhost:3000/users/sign_up",
+      //     options
+      //   );
+      //   const result = await data.json();
+      //   console.log(result);
+      // };
+
       const main = async () => {
         const headers = new Headers();
 
@@ -73,15 +82,26 @@
           }),
         };
 
+        // const options1 = {
+        //   headers,
+        //   method: "GET",
+        //   body: JSON.stringify({
+        //     user: {
+        //       email: `test@${Math.random()}.fr`,
+        //       password: "azerty",
+        //     },
+        //   }),
+        // };
+
         await register(options);
 
         const data = await login(options);
-
         headers.append("Authorization", data.headers.get("Authorization"));
-
+        // console.log(data.headers.get("Authorization"))
         await loginWithToken(headers);
-        await postWithToken(headers)
+        await postWithToken(headers);
         await logout(headers);
+        // await register1(options1);
       };
 
       main();
