@@ -1,10 +1,13 @@
 import Button from "./Button";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import {useNavigate} from "react-router-dom"
 
-const PostUpdateForm = (id) => {
+const PostUpdateForm = ({id}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const history = useNavigate()
+
   const post_id = id;
 
   const userToken = Cookies.get("token");
@@ -30,8 +33,6 @@ const PostUpdateForm = (id) => {
   }
 
   const updateForm = async (data, id) => {
-    // console.log(id)
-    // console.log(data)
     const response = await fetch(`http://localhost:3000/posts/${id}`, {
       method: `PUT`,
       headers: {
@@ -47,6 +48,7 @@ const PostUpdateForm = (id) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateForm(data, post_id);
+    history(0);
   };
 
   return (
