@@ -5,9 +5,6 @@ import { useUserContext } from "../UserContext";
 const NavBar = () => {
   const {user } = useUserContext()
 
-  console.log("navbar")
-  console.log(user)
-
   return (
     <div className="navbar">
       <div className="navbar__right">

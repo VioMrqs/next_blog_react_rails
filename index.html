@@ -77,11 +77,9 @@
 
         const data = await login(options);
         headers.append("Authorization", data.headers.get("Authorization"));
-        // console.log(data.headers.get("Authorization"))
         await loginWithToken(headers);
         await postWithToken(headers);
         await logout(headers);
-        // await register1(options1);
       };
 
       main();

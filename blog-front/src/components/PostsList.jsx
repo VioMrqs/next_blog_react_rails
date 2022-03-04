@@ -54,7 +54,6 @@ const PostList = ({ data }) => {
           />
         )}
       </div>
-      <div className="posts__list">
         <Masonry
           breakpointCols={5}
           className="my-masonry-grid"
@@ -88,34 +87,7 @@ const PostList = ({ data }) => {
           })}
         </Masonry>
         ;
-        {/* {setData(data).map((post) => {
-          return (
-            <div key={post.id} className="post__item">
-              <h2>{post.title}</h2>
-              <img
-                className="post__picture"
-                src={post.image_url}
-                alt="instagramable"
-              ></img>
-              <div className="post__text__picture">{post.content}</div>
-              {user && user.id === post.user_id && (
-                <>
-                  <Button
-                    text={"Supprimer"}
-                    onClick={() => handleDeleteSubmit(post.id)}
-                  />
-                  <Button
-                    text={"Modifier"}
-                    onClick={() => handleUpdateSubmit()}
-                  />
-                  {showUpdate ? <PostUpdateForm id={post.id} /> : null}
-                </>
-              )}
-            </div>
-          );
-        })} */}
       </div>
-    </div>
   );
 };
 

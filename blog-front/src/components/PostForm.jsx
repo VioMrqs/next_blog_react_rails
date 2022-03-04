@@ -6,6 +6,7 @@ const PostForm = ({user}) => {
   // States 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
 
   // Handling the title change
   const handleTitle = (e) => {
@@ -16,6 +17,10 @@ const PostForm = ({user}) => {
   const handleContent = (e) => {
     setContent(e.target.value);
   };
+
+    const handleImage = (e) => {
+      setImage(e.target.value);
+    };
 
   const fetchPostForm = async (data) => {
     const response = await fetch("http://localhost:3000/posts", {
@@ -35,6 +40,7 @@ const PostForm = ({user}) => {
       post: {
         title: title,
         content: content,
+        image_url: image,
       },
     };
     fetchPostForm(data);
@@ -58,11 +64,11 @@ const PostForm = ({user}) => {
           value={content}
           type="text"
         />
-        <label>Image</label>
+        <label>Image (URL)</label>
         <input
-          onChange={handleTitle}
+          onChange={handleImage}
           className="post__input"
-          value={title}
+          value={image}
           type="text"
         />
         <Button

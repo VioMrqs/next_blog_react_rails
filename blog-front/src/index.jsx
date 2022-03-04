@@ -46,8 +46,6 @@ const App = () => {
     fetchUser();
   }, [userToken]);
 
-  console.log(user);
-
   return (
     <div>
         <UserContext.Provider value={{ user, setUser }}>
