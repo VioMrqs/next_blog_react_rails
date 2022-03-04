@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useUserContext } from "../UserContext";
 import Cookies from "js-cookie";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const CommentsList = ({ post }) => {
   const { user } = useUserContext();
@@ -37,37 +37,24 @@ const CommentsList = ({ post }) => {
     fetchNewComment(data);
   };
 
-  // Update comment
-
   // Delete comment
-  // const deletePost = async (id) => {
-  //   const response = await fetch(`http://localhost:3000/posts/${id}`, {
-  //     headers: {
-  //       Authorization: `${userToken}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "DELETE",
-  //   });
-  //   const result = await response.json();
-  //   console.log(result);
-  // };
 
-  // const handleDeleteSubmit = (id) => {
-  //   deletePost(id);
-  //   window.location.reload();
-  // };
+  const deleteComment = async (id) => {
+    const response = await fetch(`http://localhost:3000/posts/${post.id}/comments/${id}`, {
+      headers: {
+        Authorization: `${userToken}`,
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    });
+    const result = await response.json();
+    console.log(result);
+  };
 
-  // const handleUpdateSubmit = () => {
-  //   setShowUpdate(!showUpdate);
-  // };
-
-  // const handleFilterSubmit = () => {
-  //   setFilter(!filter);
-  // };
-
-  // const setData = (data) => {
-  //   return filter ? data.filter((post) => post.user_id === user.id) : data;
-  // };
+  const handleDeleteSubmit = (id) => {
+    deleteComment(id);
+    window.location.reload();
+  };
 
   return (
     <div className="post__container">
@@ -87,19 +74,14 @@ const CommentsList = ({ post }) => {
           return (
             <div key={comment.id} className="comments__list">
               <p>{comment.content}</p>
-              {/* {user && user.id === comment.user_id && (
+              {user && user.id === comment.user_id && (
                 <>
                   <Button
                     text={"Supprimer"}
                     onClick={() => handleDeleteSubmit(comment.id)}
                   />
-                  <Button
-                    text={"Modifier"}
-                    onClick={() => handleUpdateSubmit()}
-                  />
-                  {showUpdate ? <PostUpdateForm id={comment.id} /> : null}
                 </>
-              )} */}
+              )}
             </div>
           );
         })}
