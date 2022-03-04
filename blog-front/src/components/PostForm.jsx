@@ -1,6 +1,7 @@
 import Button from "./../components/Button";
 import { useState } from "react";
 import Cookies from "js-cookie"
+import images from "../data";
 
 const PostForm = ({user}) => {
   // States 
@@ -49,7 +50,7 @@ const PostForm = ({user}) => {
   return (
     <div className="form__container">
       <form onSubmit={handleSubmit}>
-        <h1>A toi la parole {user.alias} !</h1>
+        <h1>Deviens un Posteur {user.alias} !</h1>
         <label>Titre</label>
         <input
           onChange={handleTitle}
