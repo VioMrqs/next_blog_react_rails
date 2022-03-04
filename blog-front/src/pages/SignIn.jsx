@@ -49,26 +49,22 @@ const SignIn = () => {
   };
 
   return (
-    <form className="form">
-      <h1>Connexion</h1>
-      <label htmlFor="email" className="form__label">
-        Identifiant *
-      </label>
-      <input id="email" type="text" onChange={handleEmail} />
+    <div className="form__container">
+      <form>
+        <h1>Connexion</h1>
+        <label htmlFor="email">Identifiant *</label>
+        <input id="email" type="text" onChange={handleEmail} />
 
-      <label htmlFor="password" className="form__label">
-        Mot de passe *
-      </label>
-      <input id="password" type="password" onChange={handlePassword} />
+        <label htmlFor="password">Mot de passe *</label>
+        <input id="password" type="text" onChange={handlePassword} />
 
-      <div>
         <Button
           onClick={() => handleSubmit()}
           type={"button"}
           text={"Connexion"}
         />
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

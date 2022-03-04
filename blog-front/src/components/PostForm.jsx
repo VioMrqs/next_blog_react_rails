@@ -2,7 +2,7 @@ import Button from "./../components/Button";
 import { useState } from "react";
 import Cookies from "js-cookie"
 
-const PostForm = () => {
+const PostForm = ({user}) => {
   // States 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -41,43 +41,37 @@ const PostForm = () => {
   };
 
   return (
-    <>
+    <div className="form__container">
       <form>
-        <div>
-          <div className="form__label">
-            <label>Ton Post</label>
-          </div>
-          <label>Titre</label>
-          <input
-            onChange={handleTitle}
-            className="post__input"
-            value={title}
-            type="string"
-          />
-          <label>Message</label>
-          <input
-            onChange={handleContent}
-            className="post__input"
-            value={content}
-            type="text"
-          />
-          <label>Image</label>
-          <input
-            onChange={handleTitle}
-            className="post__input"
-            value={title}
-            type="string"
-          />
-        </div>
-        <div>
-          <Button
-            onClick={handleSubmit}
-            type={"submit"}
-            text={"Envoi dans la toile"}
-          />
-        </div>
+        <h1>A toi la parole {user.alias} !</h1>
+        <label>Titre</label>
+        <input
+          onChange={handleTitle}
+          className="post__input"
+          value={title}
+          type="text"
+        />
+        <label>Message</label>
+        <input
+          onChange={handleContent}
+          className="post__input"
+          value={content}
+          type="text"
+        />
+        <label>Image</label>
+        <input
+          onChange={handleTitle}
+          className="post__input"
+          value={title}
+          type="text"
+        />
+        <Button
+          onClick={handleSubmit}
+          type={"submit"}
+          text={"Envoi dans la toile"}
+        />
       </form>
-    </>
+    </div>
   );
 };
 

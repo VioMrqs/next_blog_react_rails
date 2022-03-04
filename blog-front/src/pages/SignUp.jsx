@@ -112,60 +112,41 @@ const SignUp = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Inscription</h1>
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
-
-      <form>
-        <div>
-          <div className="form__label">
-            <label>Nom</label>
-          </div>
-
-          <input
-            onChange={handleUserName}
-            className="input"
-            value={username}
-            type="text"
-          />
+    <div className="form__container">
+      <form onSubmit={handleSubmit}>
+        <h1>Inscription</h1>
+        <div className="messages">
+          {errorMessage()}
+          {successMessage()}
         </div>
+        <label>Nom</label>
 
-        <div>
-          <div className="form__label">
-            <label>Email</label>
-          </div>
+        <input
+          onChange={handleUserName}
+          className="input"
+          value={username}
+          type="text"
+        />
 
-          <input
-            onChange={handleEmail}
-            className="input"
-            value={email}
-            type="email"
-          />
-        </div>
+        <label>Email</label>
 
-        <div>
-          <div className="form__label">
-            <label>Password</label>
-          </div>
+        <input
+          onChange={handleEmail}
+          className="input"
+          value={email}
+          type="email"
+        />
 
-          <input
-            onChange={handlePassword}
-            className="input"
-            value={password}
-            type="password"
-          />
-        </div>
+        <label>Password</label>
 
-        <div>
-          <Button
-            onClick={handleSubmit}
-            type={"submit"}
-            text={"Inscription"}
-          />
-        </div>
+        <input
+          onChange={handlePassword}
+          className="input"
+          value={password}
+          type="text"
+        />
+
+        <Button type={"submit"} text={"Inscription"} />
       </form>
     </div>
   );

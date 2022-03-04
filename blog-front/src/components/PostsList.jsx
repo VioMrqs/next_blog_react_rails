@@ -40,39 +40,44 @@ const PostList = ({ data }) => {
   };
 
   return (
-    <div className="posts_list">
-      {user && (
-        <Button
-          text={filter ? "Tous les posts" : "Voir uniquement mes posts"}
-          onClick={() => handleFilterSubmit()}
-        />
-      )}
-      {setData(data).map((post) => {
-        return (
-          <div key={post.id} className="post__item">
-            <h2>{post.title}</h2>
-            <img
-              className="post__picture"
-              src={post.image_url}
-              alt="instagramable"
-            ></img>
-            <div className="post__text__picture">{post.content}</div>
-            {user && user.id === post.user_id && (
-              <>
-                <Button
-                  text={"Supprimer"}
-                  onClick={() => handleDeleteSubmit(post.id)}
-                />
-                <Button
-                  text={"Modifier"}
-                  onClick={() => handleUpdateSubmit()}
-                />
-                {showUpdate ? <PostUpdateForm id={post.id} /> : null}
-              </>
-            )}
-          </div>
-        );
-      })}
+    <div className="post__container">
+      <div className="post__header">
+        <h1>FEED</h1>
+        {user && (
+          <Button
+            text={filter ? "Tous les posts" : "Voir uniquement mes posts"}
+            onClick={() => handleFilterSubmit()}
+          />
+        )}
+      </div>
+      <div className="posts__list">
+        {setData(data).map((post) => {
+          return (
+            <div key={post.id} className="post__item">
+              <h2>{post.title}</h2>
+              <img
+                className="post__picture"
+                src={post.image_url}
+                alt="instagramable"
+              ></img>
+              <div className="post__text__picture">{post.content}</div>
+              {user && user.id === post.user_id && (
+                <>
+                  <Button
+                    text={"Supprimer"}
+                    onClick={() => handleDeleteSubmit(post.id)}
+                  />
+                  <Button
+                    text={"Modifier"}
+                    onClick={() => handleUpdateSubmit()}
+                  />
+                  {showUpdate ? <PostUpdateForm id={post.id} /> : null}
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

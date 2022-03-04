@@ -15,7 +15,12 @@ const Logout = () => {
   };
 
   return (
-    <Button onClick={() => handleSubmit()} text={"Veux-tu vraiment te déconnecter ?"} />
+    <div className="form__container">
+      <Button
+        onClick={() => handleSubmit()}
+        text={"Veux-tu vraiment te déconnecter ?"}
+      />
+    </div>
   );
 };
 

@@ -1,12 +1,12 @@
 import Button from "./Button";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-const PostUpdateForm = ({id}) => {
+const PostUpdateForm = ({ id }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const history = useNavigate()
+  const history = useNavigate();
 
   const post_id = id;
 
@@ -52,30 +52,20 @@ const PostUpdateForm = ({id}) => {
   };
 
   return (
-    <div className="form">
-      <h3>Modifie ton post</h3>
+    <div className="form__container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title" className="form__label">
-            Titre
-          </label>
-        </div>
-        <div>
-          <input id="title" type="text" onChange={handleTitle} />
-        </div>
+        <h3>Modification</h3>
+        <label htmlFor="title">
+          Titre
+        </label>
+        <input id="title" type="text" onChange={handleTitle} />
 
-        <div>
-          <label htmlFor="content" className="form__label">
-            Contenu
-          </label>
-        </div>
-        <div>
-          <input id="content" type="text" onChange={handleContent} />
-        </div>
+        <label htmlFor="content">
+          Contenu
+        </label>
+        <input id="content" type="text" onChange={handleContent} />
 
-        <div>
-          <Button type={"submit"} text={"Mettre à jour"} />
-        </div>
+        <Button type={"submit"} text={"Mettre à jour"} />
       </form>
     </div>
   );

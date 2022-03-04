@@ -4,9 +4,9 @@ import PostForm from "../components/PostForm";
 import { useUserContext } from "../UserContext";
 
 const Home = () => {
-const { user } = useUserContext()
+  const { user } = useUserContext();
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   const fetchPost = async () => {
     const data = await fetch("http://localhost:3000/posts", {
@@ -25,15 +25,10 @@ const { user } = useUserContext()
 
   return (
     <>
-      {user && 
-      <>
-      <h1>Bienvenu {user.alias} !</h1>
-      <PostForm />
-      </>}
-      <h1>FEED</h1>
+      {user && <PostForm user={user} />}
       <PostsList data={data.sort((a, b) => b.created_at - a.created_at)} />
     </>
   );
-}
+};
 
-export default Home
+export default Home;

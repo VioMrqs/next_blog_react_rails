@@ -49,7 +49,7 @@ const App = () => {
   console.log(user);
 
   return (
-    <div className="main-container">
+    <div>
         <UserContext.Provider value={{ user, setUser }}>
           <Router>
             <NavBar />
