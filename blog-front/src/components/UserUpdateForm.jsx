@@ -56,9 +56,9 @@ const UserUpdateForm = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Modifie ton profil</h1>
+    <div className="form__container">
       <form onSubmit={handleSubmit}>
+        <h1>Modification</h1>
         <div>
           <label htmlFor="alias" className="form__label">
             Alias
@@ -87,7 +87,7 @@ const UserUpdateForm = () => {
         </div>
 
         <div>
-          <Button type={"submit"} text={"Mettre à jour"} />
+          <Button type={"submit"} text={"Modifier"} />
         </div>
       </form>
     </div>
