@@ -1,10 +1,13 @@
 import Button from "./../components/Button";
 import { useState } from "react";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 import images from "../data";
+import { Hint } from "react-autocomplete-hint";
 
-const PostForm = ({user}) => {
-  // States 
+const PostForm = ({ user }) => {
+  const names = Object.keys(images);
+
+  // States
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
@@ -19,21 +22,21 @@ const PostForm = ({user}) => {
     setContent(e.target.value);
   };
 
-    const handleImage = (e) => {
-      setImage(e.target.value);
-    };
+  const handleImage = (e) => {
+    setImage(e.target.value);
+  };
 
   const fetchPostForm = async (data) => {
     const response = await fetch("http://localhost:3000/posts", {
       headers: {
-        "Authorization": `${Cookies.get("token")}`,
+        Authorization: `${Cookies.get("token")}`,
         "Content-Type": "application/json",
       },
       method: "POST",
       body: JSON.stringify(data),
-    })
-      const result = await response.json();
-      console.log(result);
+    });
+    const result = await response.json();
+    console.log(result);
   };
 
   const handleSubmit = () => {
@@ -41,7 +44,7 @@ const PostForm = ({user}) => {
       post: {
         title: title,
         content: content,
-        image_url: image,
+        image_url: images[image],
       },
     };
     fetchPostForm(data);
@@ -50,7 +53,7 @@ const PostForm = ({user}) => {
   return (
     <div className="form__container">
       <form onSubmit={handleSubmit}>
-        <h1>Deviens un Posteur {user.alias} !</h1>
+        <h1>{user.alias}, deviens un Posteur !</h1>
         <label>Titre</label>
         <input
           onChange={handleTitle}
@@ -65,13 +68,26 @@ const PostForm = ({user}) => {
           value={content}
           type="text"
         />
-        <label>Image (URL)</label>
-        <input
-          onChange={handleImage}
-          className="post__input"
-          value={image}
-          type="text"
-        />
+        <label>Ton Imposteur</label>
+        <code>{`[${names.toString()}]`}</code>
+        <Hint
+          options={names}
+          allowTabFill
+          onFill={(input) => {
+            console.log("ONFILL");
+            console.log(input);
+            setImage(input);
+          }}
+        >
+          <input
+            className="post__input"
+            placeholder="trouve ton imposteur"
+            value={image}
+            onChange={handleImage}
+            type="text"
+          />
+        </Hint>
+
         <Button
           type={"submit"}
           text={"Envoi dans la toile"}
