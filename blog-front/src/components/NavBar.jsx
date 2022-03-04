@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar__right">
-        <Link to="/">PostMan</Link>
+        <Link to="/">Posteur</Link>
       </div>
       {user && (
         <div className="navbar__left">
