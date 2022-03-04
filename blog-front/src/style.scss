@@ -22,6 +22,11 @@ h2 {
   font-family: "PT Sans Caption", sans-serif;
 }
 
+// h4 {
+//   color: $color-dark;
+//   font-family: "PT Sans Caption", sans-serif;
+// }
+
 .container {
   margin-top: 10px;
   padding-top: 30px;
@@ -124,13 +129,22 @@ h2 {
 
 .post__picture {
   border-radius: 8px;
-  width: 150px;
+  width: 200px;
   height: auto;
   opacity: 0.75;
 }
 
 .post__picture:hover {
   opacity: 1;
+}
+
+// comment
+
+.comments__list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
 // test masonzy

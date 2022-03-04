@@ -79,7 +79,6 @@ const SignUp = () => {
       setError(false);
       fetchRegisterForm(data);
       setUser(jwt_decode(Cookies.get("token")))
-      // userHasAuthenticated(true);
     }
   };
 

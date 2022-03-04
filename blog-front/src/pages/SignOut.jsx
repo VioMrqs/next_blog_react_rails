@@ -8,6 +8,8 @@ const Logout = () => {
   let history = useNavigate();
   const {setUser} = useUserContext();
 
+  // ajouter un fetch destroy sur sign_out
+
   const handleSubmit = () => {
     Cookies.remove("token");          
     setUser(null)

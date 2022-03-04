@@ -25,14 +25,6 @@ const Home = () => {
     fetchPost();
   }, []);
 
-  // const Button = ({ onClick, text, type }) => {
-  //   return (
-  //     <button className="button" onClick={onClick} type={type}>
-  //       {text}
-  //     </button>
-  //   );
-  // };
-
   return (
     <>
       {!user && (

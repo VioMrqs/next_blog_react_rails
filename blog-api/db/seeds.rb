@@ -28,3 +28,11 @@ user = User.create(
       image_url: images.sample
     )
   end
+
+30.times do
+  comment = Comment.create(
+    content: Faker::ChuckNorris.fact,
+    user: User.all.sample,
+    post: Post.all.sample
+  )
+end

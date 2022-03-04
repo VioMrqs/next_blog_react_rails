@@ -48,7 +48,7 @@ const PostForm = ({user}) => {
 
   return (
     <div className="form__container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>A toi la parole {user.alias} !</h1>
         <label>Titre</label>
         <input
@@ -72,7 +72,6 @@ const PostForm = ({user}) => {
           type="text"
         />
         <Button
-          onClick={handleSubmit}
           type={"submit"}
           text={"Envoi dans la toile"}
         />
