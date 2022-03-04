@@ -24,7 +24,11 @@ const UserUpdateForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Button type={"submit"} text={"Supprimer mon profil"} />
+      <Button
+        type={"submit"}
+        text={"Supprimer mon profil"}
+        className={"button__normal"}
+      />
     </form>
   );
 };

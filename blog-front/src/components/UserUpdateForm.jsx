@@ -87,7 +87,11 @@ const UserUpdateForm = () => {
         </div>
 
         <div>
-          <Button type={"submit"} text={"Modifier"} />
+          <Button
+            type={"submit"}
+            text={"Modifier"}
+            className={"button__normal"}
+          />
         </div>
       </form>
     </div>

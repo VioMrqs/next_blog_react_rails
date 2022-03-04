@@ -145,7 +145,11 @@ const SignUp = () => {
           type="text"
         />
 
-        <Button type={"submit"} text={"Inscription"} />
+        <Button
+          type={"submit"}
+          text={"Inscription"}
+          className={"button__normal"}
+        />
       </form>
     </div>
   );

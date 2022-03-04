@@ -7,10 +7,8 @@ const CommentsList = ({ post }) => {
   const { user } = useUserContext();
   const [content, setContent] = useState("");
   const userToken = Cookies.get("token");
-  // const [showUpdate, setShowUpdate] = useState(false);
-  // const [filter, setFilter] = useState(false);
 
-  // Post a comment
+// Create comment fetch + useState
   const fetchNewComment = async (data) => {
     const response = await fetch(`http://localhost:3000/posts/${post.id}/comments`, {
       headers: {
@@ -58,29 +56,31 @@ const CommentsList = ({ post }) => {
 
   return (
     <div className="post__container">
-      {user && (<div className="form__container">
-        <form onSubmit={handleCommentSubmit}>
-          <input
-            onChange={handleContent}
-            className="post__input"
-            value={content}
-            type="text"
-          />
-          <Button type={"submit"} text={"Comm'"} />
-        </form>
-      </div>)}
-      <div className="post__header">
+      {user && (
+        <div className="form__container">
+          <form onSubmit={handleCommentSubmit}>
+            <input
+              onChange={handleContent}
+              className="post__input"
+              value={content}
+              type="text"
+            />
+            <Button type={"submit"} text={"Go"} className={"button__small"} />
+          </form>
+        </div>
+      )}
+      <div className="comment__list">
         {post.comments.map((comment) => {
           return (
-            <div key={comment.id} className="comments__list">
+            <div key={comment.id} className="comment__item">
               <p>{comment.content}</p>
+              <p>écrit par {comment.user.alias}</p>
               {user && user.id === comment.user_id && (
-                <>
-                  <Button
-                    text={"Supprimer"}
-                    onClick={() => handleDeleteSubmit(comment.id)}
-                  />
-                </>
+                <Button
+                  text={"Supprimer"}
+                  onClick={() => handleDeleteSubmit(comment.id)}
+                  className={"button__small"}
+                />
               )}
             </div>
           );

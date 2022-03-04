@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   # GET /comments
   def index
     @comments = @post.comments
-    render json: @comments
+    render json: @comments, include: [:user]
   end
 
   # GET /comments/1

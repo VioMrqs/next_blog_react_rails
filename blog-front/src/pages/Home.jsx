@@ -29,12 +29,12 @@ const Home = () => {
     <>
       {!user && (
         <div className="form__container">
-        <Link to="/sign_up">
-          <Button text={"Inscription"} />
-        </Link>
-        <Link to="/sign_in">
-          <Button text={"Connexion"} />
-        </Link>
+          <Link to="/sign_up">
+            <Button text={"Inscription"} className={"button__normal"} />
+          </Link>
+          <Link to="/sign_in">
+            <Button text={"Connexion"} className={"button__normal"} />
+          </Link>
         </div>
       )}
       {user && <PostForm user={user} />}

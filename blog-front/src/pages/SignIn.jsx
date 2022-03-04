@@ -62,6 +62,7 @@ const SignIn = () => {
           onClick={() => handleSubmit()}
           type={"button"}
           text={"Connexion"}
+          className={"button__normal"}
         />
       </form>
     </div>

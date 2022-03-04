@@ -74,6 +74,7 @@ const PostForm = ({user}) => {
         <Button
           type={"submit"}
           text={"Envoi dans la toile"}
+          className={"button__normal"}
         />
       </form>
     </div>

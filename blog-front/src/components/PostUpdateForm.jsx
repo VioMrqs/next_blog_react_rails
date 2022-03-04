@@ -55,17 +55,17 @@ const PostUpdateForm = ({ id }) => {
     <div className="form__container">
       <form onSubmit={handleSubmit}>
         <h3>Modification</h3>
-        <label htmlFor="title">
-          Titre
-        </label>
+        <label htmlFor="title">Titre</label>
         <input id="title" type="text" onChange={handleTitle} />
 
-        <label htmlFor="content">
-          Contenu
-        </label>
+        <label htmlFor="content">Contenu</label>
         <input id="content" type="text" onChange={handleContent} />
 
-        <Button type={"submit"} text={"Mettre à jour"} />
+        <Button
+          type={"submit"}
+          text={"Mettre à jour"}
+          className={"button__normal"}
+        />
       </form>
     </div>
   );

@@ -21,6 +21,7 @@ const Logout = () => {
       <Button
         onClick={() => handleSubmit()}
         text={"Veux-tu vraiment te déconnecter ?"}
+        className={"button__normal"}
       />
     </div>
   );

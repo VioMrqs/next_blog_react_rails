@@ -52,8 +52,9 @@ const PostsList = ({ data }) => {
         <h1>FEED</h1>
         {user && (
           <Button
-            text={filter ? "Tous les posts" : "Voir uniquement mes posts"}
+            text={filter ? "Tous les posts" : "Mes posts"}
             onClick={() => handleFilterSubmit()}
+            className={"button__normal"}
           />
         )}
       </div>
@@ -79,10 +80,12 @@ const PostsList = ({ data }) => {
                   <Button
                     text={"Supprimer"}
                     onClick={() => handleDeleteSubmit(post.id)}
+                    className={"button__small"}
                   />
                   <Button
                     text={"Modifier"}
                     onClick={() => handleUpdateSubmit()}
+                    className={"button__small"}
                   />
                   {showUpdate ? <PostUpdateForm id={post.id} /> : null}
                 </>
