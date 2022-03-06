@@ -74,8 +74,6 @@ const PostForm = ({ user }) => {
           options={names}
           allowTabFill
           onFill={(input) => {
-            console.log("ONFILL");
-            console.log(input);
             setImage(input);
           }}
         >

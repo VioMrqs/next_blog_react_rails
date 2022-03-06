@@ -30,17 +30,8 @@ const App = () => {
     setUser(result.user);
   };
 
-  // Check if there is a valid cookie
-  const checkCookies = () => {
-    if (typeof userToken === "string") {
-      setUser(jwt_decode(userToken));
-    }
-  };
-
 // Check cookie + fetch user when token change
-
   useEffect(() => {
-    checkCookies();
     fetchUser();
   }, [userToken]);
 

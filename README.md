@@ -37,6 +37,7 @@ __if connected__
 
 ### To improve
 
+- Alert my json render
 - Admin and moderation dashboard
 - Make my code DRYer
 - Design and CSS... 🧐 Could definitely be nicer

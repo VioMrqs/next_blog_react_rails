@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   # GET /comments
   def index
-    @comments = @post.comments
+    @comments = @post.comments.sort_by(&:created_at).reverse
     render json: @comments, include: [:user]
   end
 

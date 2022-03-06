@@ -5,8 +5,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
-  render json: @posts, include: [:user, :comments => {:include => :user}]  
+    @posts = Post.all.sort_by(&:created_at).reverse
+
+    render json: @posts, include: [:user, :comments => {:include => :user}]  
   end
 
   # GET /posts/1
