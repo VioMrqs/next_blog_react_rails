@@ -1,11 +1,14 @@
 # A blog using React x Rails
 
-## Goal
+## Goal : a class project
 
-My firrst rails x react app !
+My first rails x react app _ Had a lot of fun doing it !
+
 Made a back DB in a rails API, called by my react app.
-Had a lot of fun doing it ! 
+
 Tried to do my best with validations and security.
+
+![Posteur](/posteur.gif)
 
 ## Launch the project
 
