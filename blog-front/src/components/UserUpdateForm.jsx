@@ -37,6 +37,10 @@ const UserUpdateForm = () => {
     data.email = email;
   }
 
+  // edit_user_registration;
+                    // edit_user_registration GET    /users/edit(.:format)                                                                             users/registrations#edit
+// sign up successfully
+
   const updateForm = async (data) => {
     const response = await fetch(`http://localhost:3000/users`, {
       method: `PUT`,

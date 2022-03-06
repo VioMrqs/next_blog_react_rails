@@ -34,7 +34,9 @@ const PostsList = ({ data }) => {
         columnClassName="my-masonry-grid_column"
       >
         {setData(data).map((post) => (
+              <div key={post.id}>
           <Post post={post} />
+          </div>
         ))}
       </Masonry>
       ;

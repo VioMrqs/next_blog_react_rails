@@ -37,7 +37,7 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div key={post.id}>
+    <>
       <h2>{post.title}</h2>
       <img
         className="post__picture"
@@ -62,7 +62,7 @@ const Post = ({ post }) => {
           {showUpdate ? <PostUpdateForm id={post.id} /> : null}
         </>
       )}
-    </div>
+    </>
   );
 };
 export default Post;

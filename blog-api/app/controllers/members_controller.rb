@@ -9,17 +9,6 @@ user: user
 }
 end
 
-# def update
-#   user = get_user_from_token
-#   puts(user)
-#   puts post_params
-#   # if user.update(post_params)
-#   #   render json: user
-#   # else
-#   #   render json: user.errors, status: :unprocessable_entity
-#   # end
-# end
-
 private
   def get_user_from_token
     jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1],
@@ -27,9 +16,5 @@ private
     user_id = jwt_payload['sub']
     User.find(user_id.to_s)
   end
-
-# def post_params
-#   params.require(:user).permit(:email, :alias, :name)
-# end
 
 end
