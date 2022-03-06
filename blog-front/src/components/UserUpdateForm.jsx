@@ -1,12 +1,13 @@
 import Button from "./Button";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const UserUpdateForm = () => {
+const UserUpdateForm = ({user}) => {
   const [alias, setAlias] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
+  const history = useNavigate();
   const userToken = Cookies.get("token");
 
   // Handling the name change
@@ -37,10 +38,6 @@ const UserUpdateForm = () => {
     data.email = email;
   }
 
-  // edit_user_registration;
-                    // edit_user_registration GET    /users/edit(.:format)                                                                             users/registrations#edit
-// sign up successfully
-
   const updateForm = async (data) => {
     const response = await fetch(`http://localhost:3000/users`, {
       method: `PUT`,
@@ -57,46 +54,48 @@ const UserUpdateForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateForm(data);
+    history(0);
   };
 
   return (
     <div className="form__container">
       <form onSubmit={handleSubmit}>
         <h1>Modification</h1>
-        <div>
-          <label htmlFor="alias" className="form__label">
-            Alias
-          </label>
-        </div>
-        <div>
-          <input id="alias" type="text" onChange={handleAlias} />
-        </div>
+        <label htmlFor="alias" className="form__label">
+          Alias
+        </label>
+        <input
+          id="alias"
+          type="text"
+          placeholder={user.alias}
+          onChange={handleAlias}
+        />
 
-        <div>
-          <label htmlFor="username" className="form__label">
-            Nom
-          </label>
-        </div>
-        <div>
-          <input id="username" type="text" onChange={handleName} />
-        </div>
+        <label htmlFor="username" className="form__label">
+          Nom
+        </label>
+        <input
+          id="username"
+          type="text"
+          placeholder={user.name}
+          onChange={handleName}
+        />
 
-        <div>
           <label htmlFor="description" className="form__label">
             Email
           </label>
-        </div>
-        <div>
-          <input id="description" type="text" onChange={handleEmail} />
-        </div>
+          <input
+            id="description"
+            type="text"
+            placeholder={user.email}
+            onChange={handleEmail}
+          />
 
-        <div>
           <Button
             type={"submit"}
             text={"Modifier"}
             className={"button__normal"}
           />
-        </div>
       </form>
     </div>
   );

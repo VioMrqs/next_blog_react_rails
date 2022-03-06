@@ -15,8 +15,8 @@ const { user } = useUserContext()
         </h2>
         <p>{user.email}</p>
         <p>En ligne depuis {moment(user.created_at).format("MMM Do YY")}</p>
-        <UserUpdateForm />
-        <UserDeleteForm />
+        <UserUpdateForm user={user} />
+        <UserDeleteForm user={user} />
       </div>
     )
   );

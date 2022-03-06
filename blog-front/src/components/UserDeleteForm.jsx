@@ -1,9 +1,12 @@
 import Button from "./Button";
-import { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../UserContext";
 
-const UserUpdateForm = () => {
+const UserUpdateForm = ({user}) => {
   const userToken = Cookies.get("token");
+  const history = useNavigate();
+  const { setUser } = useUserContext();
 
   const deleteForm = async () => {
     const response = await fetch(`http://localhost:3000/users`, {
@@ -19,7 +22,9 @@ const UserUpdateForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    deleteForm();
+    deleteForm();  
+    setUser(null)
+    history('/');
   };
 
   return (
